@@ -1,0 +1,26 @@
+package myPackage;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Test02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//create a pattern to be searched
+		Pattern p=Pattern.compile("java");
+		
+		//search the above pattern in the below string
+		Matcher m=p.matcher("java is a programming language");
+		
+		//finding string using find() method
+		while(m.find()) {
+			//print starting and ending indexes
+			//of the pattern in the text
+			System.out.println("Pattern found from "+m.start()+" to "+(m.end()-1));
+		}
+		
+
+	}
+
+}
