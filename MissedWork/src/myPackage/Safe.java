@@ -1,22 +1,21 @@
 package myPackage;
 
-
-class Reserve1 implements Runnable{
+class Reserve2 implements Runnable{
 
 	//available berths are 1
 	int available=1;
 	int wanted;
 	
 	//accept wanted berths at run time
-	Reserve1(int i){
+	Reserve2(int i){
 		wanted=i;
 	}
 	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		//synchronize the current object
-		synchronized(this) {
+		//synchronizing the current object 
+		synchronized(this) {	
 		//display available berths
 		System.out.println("Available Berths:"+available);
 		if(available>=wanted) {
@@ -39,12 +38,15 @@ class Reserve1 implements Runnable{
 		}
 		}
 	}
-public class Safe {
 	
+
+
+public class Safe {
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//tell that 1 berth is needed
-		Reserve1 obj=new Reserve1(1);
+		Reserve2 obj=new Reserve2(1);
 		
 		//attach first thread to the object
 		Thread t1=new Thread(obj);
@@ -61,4 +63,5 @@ public class Safe {
 		t2.start();
 
 	}
+
 }
